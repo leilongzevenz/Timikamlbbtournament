@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TIMIKA MLBB CHAMPIONSHIP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+        body { font-family: 'Montserrat', sans-serif; background-color: #060b13; color: #fff; overflow-x: hidden; }
+        .mlbb-gold { color: #f4d03f; text-shadow: 0 0 10px rgba(244, 208, 63, 0.5); }
+        .hero-bg {
+            background: linear-gradient(rgba(6, 11, 19, 0.7), rgba(6, 11, 19, 0.9)),
+                        url('https://wallpapers.com/images/high/mobile-legends-land-of-dawn-background-61q8q8z550d53z5c.webp') no-repeat center center/cover;
+        }
+        .btn-glow { box-shadow: 0 0 20px rgba(244, 208, 63, 0.4); }
+        .mlbb-card { background: rgba(20, 30, 50, 0.8); border: 1px solid #f4d03f; }
+        .btn-social { transition: 0.3s; opacity: 0.8; cursor: pointer; }
+        .btn-social:hover { opacity: 1; transform: scale(1.1); }
+    </style>
+</head>
+<body class="land-of-dawn-bg">
+⁠
+    <!-- LANDING PAGE -->
+    <div id="landingPage" class="hero-bg min-h-screen flex flex-col items-center justify-center p-6 text-center">
+        <div class="mb-8">
+            <h2 class="text-blue-400 font-bold uppercase tracking-[0.3em] mb-2">Turnamen MLBB Terbesar di Timika</h2>
+            <h1 class="text-4xl md:text-7xl font-black mlbb-gold uppercase leading-tight mb-4">TIMIKA MLBB<br>CHAMPIONSHIP</h1>
+            <p class="text-gray-300 max-w-sm mx-auto text-lg italic">"Kumpulkan timmu, dominasi Land of Dawn, dan bawa pulang hadiahnya!"</p>
+        </div>
+⁠
+        <div class="grid grid-cols-3 gap-2 w-full max-w-md mb-10 text-center">
+            <div class="p-2 border-r border-yellow-700">
+                <p class="text-xl font-bold mlbb-gold">100+</p>
+                <p class="text-[10px] uppercase text-gray-400">Pemain</p>
+            </div>
+            <div class="p-2 border-r border-yellow-700">
+                <p class="text-xl font-bold mlbb-gold">IDR</p>
+                <p class="text-[10px] uppercase text-gray-400">Hadiah Menarik</p>
+            </div>
+            <div class="p-2">
+                <p class="text-xl font-bold mlbb-gold">LIVE</p>
+                <p class="text-[10px] uppercase text-gray-400">Streaming</p>
+            </div>
+        </div>
+⁠
+        <button onclick="showApp()" class="btn-glow bg-yellow-500 hover:bg-yellow-400 text-black font-black py-4 px-12 rounded-lg text-lg uppercase transition-all transform hover:scale-105 mb-10">
+            Daftar Sekarang
+        </button>
+⁠
+        <div class="w-full max-w-md text-left mt-4 border-t border-yellow-800 pt-6">
+            <h3 class="text-xl font-bold mlbb-gold mb-4 text-center uppercase">FAQ</h3>
+            <div class="space-y-4 text-sm text-gray-300">
+                <div><p class="font-bold text-yellow-500">1. Bisa daftar tanpa tim?</p><p>Bisa, pilih mode Solo dan sistem akan carikan tim untukmu.</p></div>
+                <div><p class="font-bold text-yellow-500">2. Hadiah langsung ditransfer?</p><p>Ya, hadiah akan langsung dikirim setelah pertandingan berakhir.</p></div>
+                <div><p class="font-bold text-yellow-500">3. Kalau kalah bagaimana?</p><p>Jangan sedih, tetap semangat dan coba lagi di turnamen berikutnya.</p></div>
+                <div><p class="font-bold text-yellow-500">4. Kapan jadwal pertandingannya?</p><p>Turnamen berlangsung setiap hari, 24 jam nonstop.</p></div>
+                <div><p class="font-bold text-yellow-500">5. Apakah disiarkan live?</p><p>Ya! Tonton keseruan live di TikTok dan FB Page kami.</p></div>
+                <div><p class="font-bold text-yellow-500">6. Bagaimana peraturan gamenya?</p><p>Wasit kami selalu ada di setiap match untuk memantau hasil pertandingan.</p></div>
+            </div>
+⁠
+            <div class="mt-8 text-center">
+                <p class="text-xs uppercase tracking-widest text-gray-400 mb-4">Follow akun kami:</p>
+                <div class="flex justify-center gap-8">
+                    <button onclick="openTikTok()" class="btn-social text-3xl text-white"><i class="fab fa-tiktok"></i></button>
+                    <button onclick="showComingSoon()" class="btn-social text-3xl text-[#1877f2]"><i class="fab fa-facebook"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+⁠
+    <!-- WEB APP SECTION -->
+    <div id="appSection" class="hidden min-h-screen p-6 bg-[#0a0f1d]">
+        <div class="max-w-sm mx-auto">
+            <h2 class="text-3xl font-black mlbb-gold text-center mb-8">PILIH MODE</h2>
+            <div class="mlbb-card p-6 rounded-2xl mb-6">
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <button id="soloBtn" onclick="setMode('solo')" class="bg-blue-900 border border-blue-400 py-3 rounded-lg font-bold">SOLO</button>
+                    <button id="teamBtn" onclick="setMode('team')" class="bg-slate-800 border border-slate-500 py-3 rounded-lg font-bold">TEAM</button>
+                </div>
+                <p id="modeDesc" class="text-sm text-gray-300 text-center"><b>Solo Player:</b> Daftar sendiri, sistem akan mengacak tim untukmu.</p>
+            </div>
+⁠
+            <div id="priceOptions" class="grid grid-cols-2 gap-3"></div>
+            <button onclick="hideApp()" class="mt-8 text-gray-500 w-full text-center hover:text-white underline">Kembali ke Depan</button>
+        </div>
+    </div>
+⁠
+    <!-- MODAL -->
+    <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-95 flex items-center justify-center p-6 z-50">
+        <div class="mlbb-card p-8 rounded-3xl w-full max-w-sm text-center border-yellow-500">
+            <h2 id="modalTitle" class="text-xl font-black mlbb-gold mb-4">Konfirmasi Pendaftaran</h2>
+            
+            <div id="rewardBox" class="bg-black p-4 rounded-lg mb-6 border border-blue-900">
+                <p class="text-xs text-gray-400 mb-1">Total hadiah menang (vs 8 team):</p>
+                <p id="rewardText" class="text-2xl md:text-3xl font-black text-green-400 truncate"></p>
+            </div>
+⁠
+            <button id="actionBtn" onclick="processRegistration()" class="w-full bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-4 rounded-lg mb-4">Daftar Sekarang</button>
+            <button onclick="closeModal()" class="text-gray-400 hover:text-white">Tutup</button>
+        </div>
+    </div>
+⁠
+    <script>
+        let selectedPrice = 0;
+        let selectedMode = 'solo';
+        
+        function showApp() { document.getElementById('landingPage').classList.add('hidden'); document.getElementById('appSection').classList.remove('hidden'); setMode('solo'); }
+        function hideApp() { document.getElementById('appSection').classList.add('hidden'); document.getElementById('landingPage').classList.remove('hidden'); }
+        
+        function setMode(mode) {
+            selectedMode = mode;
+            const soloBtn = document.getElementById('soloBtn');
+            const teamBtn = document.getElementById('teamBtn');
+            const modeDesc = document.getElementById('modeDesc');
+            const priceOptions = document.getElementById('priceOptions');
+            
+            let prices = [];
+            if (mode === 'solo') {
+                soloBtn.className = 'bg-blue-900 border border-blue-400 py-3 rounded-lg font-bold';
+                teamBtn.className = 'bg-slate-800 border border-slate-500 py-3 rounded-lg font-bold';
+                modeDesc.innerHTML = "<b>Solo Player:</b> Daftar sendiri, sistem akan mengacak tim untukmu.";
+                prices = [20000, 50000, 100000, 300000];
+            } else {
+                soloBtn.className = 'bg-slate-800 border border-slate-500 py-3 rounded-lg font-bold';
+                teamBtn.className = 'bg-blue-900 border border-blue-400 py-3 rounded-lg font-bold';
+                modeDesc.innerHTML = "<b>Team Player:</b> Daftar dengan tim yang sudah ada, kamu akan melawan tim lain.";
+                prices = [100000, 250000, 500000, 1500000];
+            }
+⁠
+            priceOptions.innerHTML = '';
+            prices.forEach(p => {
+                priceOptions.innerHTML += `<button onclick="openModal(${p})" class="bg-slate-800 p-4 rounded-lg border border-yellow-600 hover:border-yellow-400 text-sm font-bold">${formatRupiah(p)}</button>`;
+            });
+        }
+⁠
+        function openTikTok() { window.open("https://www.tiktok.com/@timikamlbbtournament?_r=1&_t=ZS-96b9R0Tj6UH", "_blank"); }
+        function showComingSoon() {
+            document.getElementById('modalTitle').innerText = "Segera Hadir!";
+            document.getElementById('rewardBox').style.display = "none";
+            document.getElementById('actionBtn').style.display = "none";
+            document.getElementById('modal').classList.add('flex');
+            document.getElementById('modal').classList.remove('hidden');
+        }
+        function openModal(price) {
+            selectedPrice = price;
+            document.getElementById('modalTitle').innerText = "Konfirmasi Pendaftaran";
+            document.getElementById('rewardBox').style.display = "block";
+            document.getElementById('actionBtn').style.display = "block";
+            document.getElementById('rewardText').innerText = formatRupiah(price * 4);
+            document.getElementById('modal').classList.add('flex');
+            document.getElementById('modal').classList.remove('hidden');
+        }
+        function closeModal() { document.getElementById('modal').classList.remove('flex'); document.getElementById('modal').classList.add('hidden'); }
+        function formatRupiah(n) { return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(n); }
+        
+        function processRegistration() {
+            let url = "";
+            if (selectedMode === 'solo') {
+                if (selectedPrice === 20000) url = "https://lynk.id/digstore/8nv16p28ovrn/checkout";
+                else if (selectedPrice === 50000) url = "https://lynk.id/digstore/q6o8mnz659v8/checkout";
+                else if (selectedPrice === 100000) url = "https://lynk.id/digstore/56y0erreeqz7";
+                else if (selectedPrice === 300000) url = "http://lynk.id/digstore/7d5281nq1mz8";
+            } else {
+                if (selectedPrice === 100000) url = "http://lynk.id/digstore/y7e19z15l62n";
+                else if (selectedPrice === 250000) url = "http://lynk.id/digstore/16q1gx89yy57";
+                else if (selectedPrice === 500000) url = "http://lynk.id/digstore/l1l5mer58980";
+                else if (selectedPrice === 1500000) url = "http://lynk.id/digstore/reo8y3g1kv11";
+                else url = "https://chat.whatsapp.com/YOUR_GROUP_LINK_HERE";
+            }
+            window.open(url, "_blank");
+        }
+    </script>
+</body>
+</html>
+⁠
+⁠
