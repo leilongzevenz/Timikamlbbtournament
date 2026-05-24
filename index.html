@@ -94,7 +94,7 @@
             <h2 id="modalTitle" class="text-xl font-black mlbb-gold mb-4">Konfirmasi Pendaftaran</h2>
             
             <div id="rewardBox" class="bg-black p-4 rounded-lg mb-6 border border-blue-900">
-                <p class="text-xs text-gray-400 mb-1">Total hadiah menang (vs 8 team):</p>
+                <p id="rewardLabel" class="text-xs text-gray-400 mb-1"></p>
                 <p id="rewardText" class="text-2xl md:text-3xl font-black text-green-400 truncate"></p>
             </div>
 
@@ -149,6 +149,14 @@
             document.getElementById('modalTitle').innerText = "Konfirmasi Pendaftaran";
             document.getElementById('rewardBox').style.display = "block";
             document.getElementById('actionBtn').style.display = "block";
+            
+            const rewardLabel = document.getElementById('rewardLabel');
+            if (selectedMode === 'solo') {
+                rewardLabel.innerText = "Masing-masing player mendapatkan hadiah:";
+            } else {
+                rewardLabel.innerText = "Tim yang menang mendapatkan total hadiah:";
+            }
+            
             document.getElementById('rewardText').innerText = formatRupiah(price * 4);
             document.getElementById('modal').classList.add('flex');
             document.getElementById('modal').classList.remove('hidden');
